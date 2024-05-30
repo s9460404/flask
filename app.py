@@ -1,13 +1,8 @@
 from flask import Flask, request, render_template, jsonify
 import pandas as pd
 from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, accuracy_score
-import tkinter as tk
 import json
 app = Flask(__name__)
-
-root = tk.Tk()
-root.title("")
-root.geometry("180x160")
 
 @app.route('/', methods=['GET'])
 def index():
