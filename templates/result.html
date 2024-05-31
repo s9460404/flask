@@ -61,8 +61,8 @@
             
             let formData = new FormData();
             formData.append('clientFile', file);
-            var data = {
-            };
+            formData.append('kind', "result");
+            
             const options = {
                 method: "POST",
                 headers: {

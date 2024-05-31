@@ -4,16 +4,20 @@ from sklearn.metrics import confusion_matrix, ConfusionMatrixDisplay, accuracy_s
 import json
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
+@app.route('/result', methods=['GET'])
+def result():
+    return render_template('result.html')
+
+@app.route('/pre_view', methods=['GET'])
+def pre_view():
+    return render_template('pre_view.html')
 
 @app.route("/submit", methods=['POST'])
 def submit():
     #file = request.files['file']
     #if file:
     #    print("have")
-            
+    
     if 'clientFile' not in request.files:
         return jsonify({'error': 'No file part'})
     
@@ -52,6 +56,13 @@ def submit():
             "9":str(conf_matrix[2][2]),
         }
         print(matrix)
+        
+        #pre_view時del label_x資料
+        print(request.form.get('kind'))
+        if( request.form.get('kind') == "pre_view" ):
+            for i in range(0, len(excel_data)):
+                del excel_data[i]["label_x"]
+
         data = {"status": "true" ,"data": excel_data, "accuracy":str(accuracy), "matrix": matrix}
 
     return jsonify(data)
