@@ -28,7 +28,7 @@ def submit():
         df_pre = pd.read_excel(file)
         result_left = pd.merge(df_true, df_pre, on='會員編號', how='left')
         print("Left Join:\n", result_left)
-        conf_matrix = confusion_matrix(result_left['label_x'], result_left['label_y'], labels=['loyal', 'partial churn', 'churn'])
+        conf_matrix = confusion_matrix( result_left['label_y'],result_left['label_x'], labels=['loyal', 'partial churn', 'churn'])
         print(conf_matrix)
         print("成功")
         # 計算準確率
