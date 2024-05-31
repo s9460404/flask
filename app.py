@@ -24,7 +24,7 @@ def submit():
     file = request.files['clientFile']
 
     if file:
-        df_true = pd.read_excel('True.xlsx')
+        df_true = pd.read_excel('test_final.xlsx')
         df_pre = pd.read_excel(file)
         result_left = pd.merge(df_true, df_pre, on='會員編號', how='left')
         print("Left Join:\n", result_left)
