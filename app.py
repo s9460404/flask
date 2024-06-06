@@ -62,6 +62,9 @@ def submit():
         if( request.form.get('kind') == "pre_view" ):
             for i in range(0, len(excel_data)):
                 del excel_data[i]["label_x"]
+        else:
+            for i in range(0, len(excel_data)):
+                del excel_data[i]["label_x"]
 
         data = {"status": "true" ,"data": excel_data, "accuracy":str(accuracy), "matrix": matrix}
 

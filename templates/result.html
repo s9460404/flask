@@ -76,7 +76,7 @@
     
             const response = await fetch("/submit", options);
             const json = await response.json();
-            console.log(json);
+            //console.log(json);
            
             var table = document.getElementById("excel");
             if( table == undefined ){
@@ -124,7 +124,7 @@
                 const newtable = $('#excel').DataTable({
                         "data": json["data"],
                         "columns": [
-                                { data: 'label_x', title: "label_x"},
+                                //{ data: 'label_x', title: "label_x"},
                                 //{ data: 'number', title: "number"},
                                 { data: '會員編號', title: "會員編號"},
                                 { data: 'label_y', title: "label_y"},
