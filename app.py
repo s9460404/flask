@@ -12,6 +12,10 @@ def result():
 def pre_view():
     return render_template('pre_view.html')
 
+@app.route('/pre_view2', methods=['GET'])
+def pre_view2():
+    return render_template('pre_view2.html')
+
 @app.route("/submit", methods=['POST'])
 def submit():
     #file = request.files['file']
@@ -59,10 +63,7 @@ def submit():
         
         #pre_view時del label_x資料
         print(request.form.get('kind'))
-        if( request.form.get('kind') == "pre_view" ):
-            for i in range(0, len(excel_data)):
-                del excel_data[i]["label_x"]
-        else:
+        if( request.form.get('kind') == "pre_view" or request.form.get('kind') == "pre_view2"):
             for i in range(0, len(excel_data)):
                 del excel_data[i]["label_x"]
 
