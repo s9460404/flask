@@ -8,6 +8,10 @@ app = Flask(__name__)
 def result():
     return render_template('result.html')
 
+@app.route('/result2', methods=['GET'])
+def result2():
+    return render_template('result2.html')
+
 @app.route('/pre_view', methods=['GET'])
 def pre_view():
     return render_template('pre_view.html')
@@ -63,7 +67,7 @@ def submit():
         
         #pre_view時del label_x資料
         print(request.form.get('kind'))
-        if( request.form.get('kind') == "pre_view" or request.form.get('kind') == "pre_view2"):
+        if( request.form.get('kind') == "pre_view" or request.form.get('kind') == "pre_view2" or request.form.get('kind') == "result2"):
             for i in range(0, len(excel_data)):
                 del excel_data[i]["label_x"]
 
